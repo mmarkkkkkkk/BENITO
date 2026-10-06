@@ -76,19 +76,7 @@
             margin: 2rem auto;
             padding: 0 1rem;
         }
-        
-        <!-- BOHOL MONTAGE VIDEO SECTION -->
-        <section id="video-section">
-            <h2>Explore Bohol: Video Highlights</h2>
-            <figure>
-                <video controls width="100%" poster="images/chocolate-hills.jpg" style="border-radius: 8px; max-height: 450px;">
-                    <source src="videos/bohol-montage.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <figcaption>A scenic video showcase of Bohol's landscapes, beaches, and rich cultural heritage.</figcaption>
-            </figure>
-        </section>
-        
+
         /* Audio player styling */
         #music-player {
             background-color: #e8f8f5;
@@ -122,13 +110,13 @@
             padding-bottom: 0.5rem;
         }
 
-        /* Figure and image styling */
+        /* Figure, image, and video styling */
         figure {
             margin: 1.5rem 0;
             text-align: center;
         }
 
-        figure img {
+        figure img, figure video {
             width: 100%;
             max-width: 100%;
             height: 380px;
@@ -170,6 +158,7 @@
     <nav>
         <ul>
             <li><a href="#intro">Home</a></li>
+            <li><a href="#video-section">Video</a></li>
             <li><a href="#about">About the Place</a></li>
             <li><a href="#attractions">Attractions</a></li>
             <li><a href="#activities">Activities</a></li>
@@ -191,6 +180,18 @@
         <section id="intro">
             <h2>Welcome to Bohol</h2>
             <p>The Philippines is home to thousands of breathtaking islands, and Bohol stands out as one of its premier destinations. From ancient geological formations to pristine coral reefs and rich heritage, explore what makes this paradise special.</p>
+        </section>
+
+        <!-- BOHOL MONTAGE VIDEO SECTION -->
+        <section id="video-section">
+            <h2>Explore Bohol: Video Highlights</h2>
+            <figure>
+                <video controls poster="images/chocolate-hills.jpg">
+                    <source src="videos/bohol-montage.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <figcaption>A scenic video showcase of Bohol's landscapes, beaches, and rich cultural heritage.</figcaption>
+            </figure>
         </section>
 
         <article id="about">
@@ -248,13 +249,4 @@
     <script>
         window.addEventListener('click', function() {
             const audio = document.getElementById('bg-music');
-            if (audio.paused) {
-                audio.play().catch(error => {
-                    console.log("Autoplay prevented by browser:", error);
-                });
-            }
-        }, { once: true });
-    </script>
-
-</body>
-</html>
+            if (audio.
