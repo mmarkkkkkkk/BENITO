@@ -5,24 +5,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beautiful Spots in the Philippines - Bohol Travel Guide</title>
     <style>
-        /* Restrict image size and preserve aspect ratio */
-        figure img {
-            width: 100%;
-            max-width: 600px; /* Controls maximum width on desktop */
-            height: 350px;    /* Fixed height for all images */
-            object-fit: cover; /* Crops image cleanly without stretching */
-            border-radius: 8px; /* Optional subtle rounded corners */
-            display: block;
+        /* Base typography & page colors */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333333;
         }
 
+        /* Header styling with tropical hero color */
+        header {
+            background-color: #0e6251;
+            color: #ffffff;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2.2rem;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Sticky modern navigation bar */
+        nav {
+            background-color: #145a32;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 1rem 1.2rem;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+        nav a:hover {
+            background-color: #1e8449;
+        }
+
+        /* Main container layout */
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Audio player styling */
+        #music-player {
+            background-color: #e8f8f5;
+            border: 1px solid #a3e4d7;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        #music-player p {
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+            color: #0e6251;
+        }
+
+        /* Content sections & card styling */
+        section, article {
+            background-color: #ffffff;
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #eaeded;
+        }
+
+        h2 {
+            color: #0e6251;
+            margin-top: 0;
+            border-bottom: 2px solid #e8f8f5;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Figure and image styling */
         figure {
             margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        figure img {
+            width: 100%;
+            max-width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         figcaption {
             font-style: italic;
-            margin-top: 0.5rem;
-            color: #555;
+            margin-top: 0.6rem;
+            color: #555555;
+            font-size: 0.95rem;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #1c2833;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-top: 3rem;
+            font-size: 0.95rem;
+        }
+
+        footer p {
+            margin: 0.3rem 0;
         }
     </style>
 </head>
@@ -44,15 +166,15 @@
         </ul>
     </nav>
 
-
-    <section id="music-player">
-        <audio id="bg-music" controls loop>
-            <source src="audio/background-music.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-    </section>
-
     <main>
+
+        <section id="music-player">
+            <p>🎵 Background Atmosphere</p>
+            <audio id="bg-music" controls loop>
+                <source src="audio/background-music.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
 
         <section id="intro">
             <h2>Welcome to Bohol</h2>
@@ -101,7 +223,7 @@
                 <img src="images/hinagdanan-cave.jpg" alt="Natural underground limestone cave with dangling stalactites and a clear illuminated lagoon">
                 <figcaption>Inside Hinagdanan Cave featuring limestone rock formations and an underground freshwater pool.</figcaption>
             </figure>
-            <p>Located in Dauis, Hinagdanan Cave is a convenient stops for travelers. Sunlight streams through roof openings into a natural underground lagoon where visitors can cool off in freshwater after exploring the limestone formations.</p>
+            <p>Located in Dauis, Hinagdanan Cave is a convenient stop for travelers. Sunlight streams through roof openings into a natural underground lagoon where visitors can cool off in freshwater after exploring the limestone formations.</p>
         </article>
 
     </main>
@@ -110,6 +232,17 @@
         <p>Images and information gathered from personal research.</p>
         <p>In celebration of the natural beauty of the Philippines &mdash; Mark Emer A. Benito</p>
     </footer>
+
+    <script>
+        window.addEventListener('click', function() {
+            const audio = document.getElementById('bg-music');
+            if (audio.paused) {
+                audio.play().catch(error => {
+                    console.log("Autoplay prevented by browser:", error);
+                });
+            }
+        }, { once: true });
+    </script>
 
 </body>
 </html>
